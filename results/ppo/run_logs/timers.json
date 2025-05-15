@@ -1,0 +1,42 @@
+{
+    "name": "root",
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1747242600",
+        "python_version": "3.10.2 (tags/v3.10.2:a58ebcc, Jan 17 2022, 14:12:15) [MSC v.1929 64 bit (AMD64)]",
+        "command_line_arguments": "C:\\Users\\elnur\\OneDrive\\Desktop\\Folders\\Projects\\FlappyBirdAI\\venv\\Scripts\\mlagents-learn BirdTrainerConfig.yaml --train",
+        "mlagents_version": "1.1.0",
+        "mlagents_envs_version": "1.1.0",
+        "communication_protocol_version": "1.5.0",
+        "pytorch_version": "2.2.2+cu121",
+        "numpy_version": "1.23.5",
+        "end_time_seconds": "1747242603"
+    },
+    "total": 3.491355800004385,
+    "count": 1,
+    "self": 0.013641300000017509,
+    "children": {
+        "run_training.setup": {
+            "total": 0.1885799000010593,
+            "count": 1,
+            "self": 0.1885799000010593
+        },
+        "TrainerController.start_learning": {
+            "total": 3.289134600003308,
+            "count": 1,
+            "self": 0.00016620000678813085,
+            "children": {
+                "TrainerController._reset_env": {
+                    "total": 3.2889484999977867,
+                    "count": 1,
+                    "self": 3.2889484999977867
+                },
+                "TrainerController._save_models": {
+                    "total": 1.9899998733308166e-05,
+                    "count": 1,
+                    "self": 1.9899998733308166e-05
+                }
+            }
+        }
+    }
+}
