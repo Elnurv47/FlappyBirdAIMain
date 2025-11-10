@@ -4,17 +4,17 @@ using UnityEngine.SceneManagement;
 
 public class Bird : MonoBehaviour
 {
-    private float jumpForce = 4f;
+    private float jumpForce = 8f;
 
     [SerializeField] private Rigidbody2D rb2D;
     [SerializeField] private ScoreSystem scoreSystem;
 
     private void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Jump();
-        }*/
+        }
     }
 
     public void Jump()
@@ -42,6 +42,15 @@ public class Bird : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Checkpoint"))
         {
+            scoreSystem.AddScore();
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.TryGetComponent<Collectible>(out Collectible collectible))
+        {
+            Destroy(collectible.gameObject);
             scoreSystem.AddScore();
         }
     }

@@ -1,13 +1,20 @@
+using System;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Random = UnityEngine.Random;
 
 public class PipeSpawner : MonoBehaviour
 {
+    [SerializeField] private float pipeSpawnerIntervalMin = 2f;
+    [SerializeField] private float pipeSpawnerIntervalMax = 4f;
+
     private static Queue<Pipe> pipes;
     public static Queue<Pipe> Pipes { get => pipes; }
 
     [SerializeField] private Pipe pipePrefab;
+
+    public Action<Transform> OnPipeSpawned;
 
     private void Awake()
     {
@@ -26,8 +33,10 @@ public class PipeSpawner : MonoBehaviour
                     Random.Range(transform.parent.position.y - 4.5f, transform.parent.position.y - 2f));
             Pipe spawnedPipe = Instantiate(pipePrefab, spawnPosition, Quaternion.identity);
             pipes.Enqueue(spawnedPipe);
+            OnPipeSpawned?.Invoke(spawnedPipe.gameObject.transform);
 
-            yield return new WaitForSeconds(2);
+            float pipeSpawnerInterval = Random.Range(pipeSpawnerIntervalMin, pipeSpawnerIntervalMax);
+            yield return new WaitForSeconds(pipeSpawnerInterval);
         }
     }
 

@@ -17,10 +17,15 @@ public class Pipe : MonoBehaviour
 
     private void Start()
     {
-        Destroy(gameObject, 5f);
+        Destroy(gameObject, 6f);
     }
 
     private void Update()
+    {
+        Move();
+    }
+
+    private void Move()
     {
         transform.position += new Vector3(-1, 0) * Time.deltaTime * moveSpeed;
     }

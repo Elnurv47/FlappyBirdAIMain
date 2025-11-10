@@ -123,6 +123,57 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &870170451
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 870170452}
+  - component: {fileID: 870170453}
+  m_Layer: 0
+  m_Name: CollectibleSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &870170452
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870170451}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5111628376184066543}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &870170453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870170451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3030d475d447c148a0d84e60c505ce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectiblePrefab: {fileID: 3194975647197501114, guid: 190fddc7f4222474b9e4c1fe622de76f, type: 3}
+  minXOffset: 2
+  maxXOffset: 3
+  minSpawnY: -3
+  maxSpawnY: 3
+  spawnChance: 0.5
+  pipeSpawner: {fileID: 1331790656557039372}
 --- !u!1 &1534246284
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,6 +391,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 749173be96077b847bbd91d0d4d9bd7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pipeSpawnerIntervalMin: 1
+  pipeSpawnerIntervalMax: 4
   pipePrefab: {fileID: -2811139828835251092, guid: 7e3621a0eae9e2946b6ec8d76678220e, type: 3}
 --- !u!4 &1523242419456299559
 Transform:
@@ -581,7 +634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 6
+    VectorObservationSize: 9
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 0
@@ -703,6 +756,7 @@ Transform:
   - {fileID: 1523242419456299559}
   - {fileID: 5398687870476297268}
   - {fileID: 767900049059001923}
+  - {fileID: 870170452}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!223 &5139317883021248221
@@ -1139,6 +1193,7 @@ MonoBehaviour:
   MaxStep: 1000000
   bird: {fileID: 6192094653310596772}
   rb2D: {fileID: 1684099381716992049}
+  collectiblePrefab: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

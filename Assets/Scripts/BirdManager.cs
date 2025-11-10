@@ -41,11 +41,10 @@ public class BirdManager : MonoBehaviour
         birdsFallen++;
         fallenBird.gameObject.SetActive(false);
 
-        // Check if all birds have fallen and episode hasn't been ended yet
         if (birdsFallen >= allBirds.Count)
         {
-            agentGroup.EndGroupEpisode();  // End the episode for all agents
-            birdsFallen = 0;  // Reset the fallen birds count
+            agentGroup.EndGroupEpisode();
+            birdsFallen = 0;
             PipeSpawner.DestroyAllPipes();
         }
     }
